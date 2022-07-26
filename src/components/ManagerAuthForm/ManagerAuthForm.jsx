@@ -1,20 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { FloatingLabel } from 'react-bootstrap';
+import { useState } from 'react';
 
-
-const CustomerAuthForm = () => {
-
+const ManagerAuthForm = () => {
     const [isLogin,setIsLogin] = useState(false);
     const [formData,setFormData] = useState({
         name: '',
         contactnumber: '',
         email: '',
-        password: ''
+        password: '',
+        restaurantname: '',
+        restaurantimage: ''
+
     });
+
+    const handleChange = (e) => {
+        console.log(e.target.files[0]);
+        var reader = new FileReader();
+        reader.readAsDataURL(e.target.files[0]);
+    
+        
+        reader.onload = () => {
+          console.log(reader.result);
+          setFormData({...formData,restaurantimage: reader.result});
+        }
+    }
+    
     return ( 
-        <div className="container col-sm-6 col-md-4 border rounded-2 mt-5 bg-light"  >
+        <div className="container col-sm-6 col-lg-4 border rounded-2 mt-5 bg-light"  >
         <Form>
             <legend className='fs-1 fw-semibold m-2'>Customer {isLogin ? "Login":"Signup"}</legend>
 
@@ -36,13 +51,31 @@ const CustomerAuthForm = () => {
             <FloatingLabel controlId="floatingInput" label="Password" className="mb-3">
                 <Form.Control type="password" name="password" placeholder="Enter Password"  onChange={(e) => setFormData({...formData,password:e.target.value})} required />
             </FloatingLabel>
+
+            {!isLogin &&
+                <FloatingLabel controlId="floatingInput" label="Restaurant Name" className="mb-3">
+                <Form.Control type="text" name="restaurantname" placeholder="Enter Restaurant name" onChange={(e) => setFormData({...formData,restaurantname:e.target.value})} required />
+                </FloatingLabel>
+            }
+            {!isLogin &&
+                <FloatingLabel controlId="floatingInput" label="Restaurant Address" className="mb-3">
+                <Form.Control as="textarea" name="restaurantaddress" placeholder="Enter Restaurant Address" onChange={(e) => setFormData({...formData,restaurantaddress:e.target.value})} required />
+                </FloatingLabel>
+            }
+            {!isLogin &&
+                <Form.Group className="mb-3" controlId="formBasicFile">
+                    <Form.Label>File</Form.Label>
+                    <Form.Control type="file" onChange={handleChange} />
+                </Form.Group>
+            }
             <div className='text-center'>
-                <Button variant="primary" className="mb-3">{(isLogin)?"Login":"Signup"}</Button>
+                <Button variant="primary" className="mb-3" onClick={() => {console.log(formData)}}>{(isLogin)?"Login":"Signup"}</Button>
             </div>
             <div className="text-primary mb-2 float-end" style = {{cursor: "pointer"}} onClick={() => setIsLogin(!isLogin)}>Already have an account?sign in</div>
+        
         </Form>
         </div>
      );
 }
  
-export default CustomerAuthForm;
+export default ManagerAuthForm;
