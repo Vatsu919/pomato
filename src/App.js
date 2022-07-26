@@ -12,6 +12,7 @@ function App() {
         <ManagerAuthForm />
         <Routes>
           <Route path='/customerAuth' element={<CustomerAuthForm />} />
+          <Route path='/restaurantManagerAuth' element={<ManagerAuthForm />} />
         </Routes>
       
     </>

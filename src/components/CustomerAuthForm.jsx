@@ -39,7 +39,7 @@ const CustomerAuthForm = () => {
             <div className='text-center'>
                 <Button variant="primary" className="mb-3">{(isLogin)?"Login":"Signup"}</Button>
             </div>
-            <div className="text-primary mb-2 float-end" style = {{cursor: "pointer"}} onClick={() => setIsLogin(!isLogin)}>Already have an account?sign in</div>
+            <div className="text-primary mb-2 float-end" style = {{cursor: "pointer"}} onClick={() => setIsLogin(!isLogin)}>{(isLogin)?"Create a new account?":"Already have an account?sign in"}</div>
         </Form>
         </div>
      );
