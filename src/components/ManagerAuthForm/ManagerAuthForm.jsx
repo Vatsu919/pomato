@@ -31,7 +31,7 @@ const ManagerAuthForm = () => {
     return ( 
         <div className="container col-sm-6 col-lg-4 border rounded-2 mt-5 bg-light"  >
         <Form>
-            <legend className='fs-1 fw-semibold m-2'>Customer {isLogin ? "Login":"Signup"}</legend>
+            <legend className='fs-1 fw-semibold m-2'>Restaurant Manager {isLogin ? "Login":"Signup"}</legend>
 
             {!isLogin &&
                 <FloatingLabel controlId="floatingInput" label="Name" className="mb-3">
@@ -71,7 +71,7 @@ const ManagerAuthForm = () => {
             <div className='text-center'>
                 <Button variant="primary" className="mb-3" onClick={() => {console.log(formData)}}>{(isLogin)?"Login":"Signup"}</Button>
             </div>
-            <div className="text-primary mb-2 float-end" style = {{cursor: "pointer"}} onClick={() => setIsLogin(!isLogin)}>Already have an account?sign in</div>
+            <div className="text-primary mb-2 float-end" style = {{cursor: "pointer"}} onClick={() => setIsLogin(!isLogin)}>{(isLogin)?"Create a new account?":"Already have an account?sign in"}</div>
         
         </Form>
         </div>
