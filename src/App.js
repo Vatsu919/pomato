@@ -7,6 +7,7 @@ import ManagerAuthForm from './components/ManagerAuthForm/ManagerAuthForm';
 import Home from './components/Home/Home';
 
 
+
 function App() {
   const user = useSelector(state=> state.user);
   console.log(user);
@@ -14,12 +15,12 @@ function App() {
     <>
        
         
-        <Routes>
+        { <Routes>
           <Route path='/' element={(user.authData)?<Home />:<CustomerAuthForm />} />
           <Route path='/customerAuth' element={<CustomerAuthForm />} />
           <Route path='/restaurantManagerAuth' element={<ManagerAuthForm />} />
-        </Routes>
-      
+        </Routes> }
+     
     </>
   );
 }
