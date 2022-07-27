@@ -20,7 +20,7 @@ const ManagerAuthForm = () => {
         restaurantName: '',
         restaurantAddress: '',
         restaurantImage: '',
-        role: 'Manager'
+        role: 'manager'
 
     });
     const dispatch = useDispatch();
@@ -36,13 +36,14 @@ const ManagerAuthForm = () => {
     
         
         reader.onload = () => {
-          console.log(reader.result);
+         // console.log(reader.result);
           setFormData({...formData,restaurantImage: reader.result});
         }
     }
 
     const handleClick = (e) => {
         e.preventDefault();
+        console.log(formData);
         if(isLogin)
         {
             dispatch(customerSignin(formData,history));

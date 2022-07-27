@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { FloatingLabel } from 'react-bootstrap';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { customerSignin, customerSignup } from '../actions/authActions.js';
 import { createBrowserHistory } from 'history';
+import App from '../App.js';
 
 
 const CustomerAuthForm = () => {
@@ -12,13 +13,14 @@ const CustomerAuthForm = () => {
     const [isLogin,setIsLogin] = useState(true);
     const history = createBrowserHistory();
     const dispatch = useDispatch();
-    
+    const user = useSelector(state => state.user);
+
     const [formData,setFormData] = useState({
         name: '',
         contactNumber: '',
         email: '',
         password: '',
-        role: 'Customer'
+        role: 'customer'
     });
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -42,7 +44,7 @@ const CustomerAuthForm = () => {
     const handleToggle = () => {
         setIsLogin(!isLogin);
     }
-    return ( 
+    return user.isLoggedIn ? (<App />) : ( 
         <div className="container col-sm-6 col-md-4 border rounded-2 mt-5 bg-light"  >
         <Form>
             <legend className='fs-1 fw-semibold m-2'>Customer {isLogin ? "Login":"Signup"}</legend>
