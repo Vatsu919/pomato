@@ -29,9 +29,7 @@ const CustomerAuthForm = () => {
         }
         else
         {
-            dispatch(customerSignup(formData,history));
-            setIsLogin(true);
-            
+            dispatch(customerSignup(formData,history));            
         }
         setFormData({
             name: '',
