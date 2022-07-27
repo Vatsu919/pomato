@@ -8,16 +8,17 @@ import Home from './components/Home/Home';
 
 
 function App() {
-  const user = useSelector(state=> state.user);
+  const user = useSelector(state => state.user);
   console.log(user);
+  console.log(user.isLoggedIn);
   return (
     <>
        
         
         <Routes>
-          <Route path='/' element={(user.authData)?<Home />:<CustomerAuthForm />} />
-          <Route path='/customerAuth' element={<CustomerAuthForm />} />
-          <Route path='/restaurantManagerAuth' element={<ManagerAuthForm />} />
+          <Route exact path='/' element={(user.isLoggedIn)?<Home />:<CustomerAuthForm />} />
+          <Route exact path='/customerAuth' element={<CustomerAuthForm />} />
+          <Route exact path='/managerAuth' element={<ManagerAuthForm />} />
         </Routes>
       
     </>
