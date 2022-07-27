@@ -10,6 +10,8 @@ import { getRestaurants } from './actions/restaurantActions.js';
 import { AUTH, LOGOUT } from './constants';
 import { Button } from 'react-bootstrap';
 import CustomerHome from './components/Home/CustomerHome';
+import RestaurantDetails from './components/Restaurant/RestaurantDetails';
+import Orders from './components/Orders/Orders';
 
 
 function App() {
@@ -40,9 +42,11 @@ function App() {
           <Route exact path='/customerAuth' element={<CustomerAuthForm />} />
           <Route exact path='/managerAuth' element={<ManagerAuthForm />} />
           <Route exact path='/restaurants' element={<CustomerHome />} />
+          <Route exact path='/restaurant/:restaurantId/details' element={<RestaurantDetails />} />
+          <Route exact path='/customer/orders' element={<Orders />} />
         </Routes>
 
-        <Button onClick={handleClick}>logout</Button>
+        {/* <Button onClick={handleClick}>logout</Button> */}
       
     </>
   );

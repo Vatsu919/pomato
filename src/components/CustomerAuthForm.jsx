@@ -38,7 +38,7 @@ const CustomerAuthForm = () => {
             contactNumber: '',
             email: '',
             password: '',
-            role: 'Customer'
+            role: 'customer'
         })
     }
     const handleToggle = () => {
@@ -51,21 +51,21 @@ const CustomerAuthForm = () => {
 
             {!isLogin &&
                 <FloatingLabel controlId="floatingInput" label="Name" className="mb-3">
-                <Form.Control type="text" name="name" placeholder="Enter name" onChange={(e) => setFormData({...formData,name:e.target.value})} required />
+                <Form.Control type="text" name="name" value={formData.name} placeholder="Enter name" onChange={(e) => setFormData({...formData,name:e.target.value})} required />
                 </FloatingLabel>
             }
             <FloatingLabel controlId="floatingInput" label="Email address" className="mb-3">
-                <Form.Control type="text" name="email" placeholder="Enter Email address"  onChange={(e) => setFormData({...formData,email:e.target.value})} required />
+                <Form.Control type="text" name="email" value={formData.email} placeholder="Enter Email address"  onChange={(e) => setFormData({...formData,email:e.target.value})} required />
             </FloatingLabel>
             {!isLogin &&
                 <FloatingLabel controlId="floatingInput" label="Contact Number" className="mb-3">
-                <Form.Control type="text" name="contactnumber" placeholder="Enter Contact Number"  onChange={(e) => setFormData({...formData,contactNumber:e.target.value})} required />
+                <Form.Control type="text" name="contactnumber" value={formData.contactNumber} placeholder="Enter Contact Number"  onChange={(e) => setFormData({...formData,contactNumber:e.target.value})} required />
                 </FloatingLabel>
             
             }
             
             <FloatingLabel controlId="floatingInput" label="Password" className="mb-3">
-                <Form.Control type="password" name="password" placeholder="Enter Password"  onChange={(e) => setFormData({...formData,password:e.target.value})} required />
+                <Form.Control type="password" name="password" value={formData.password} placeholder="Enter Password"  onChange={(e) => setFormData({...formData,password:e.target.value})} required />
             </FloatingLabel>
             <div className='text-center'>
                 <Button variant="primary" className="mb-3" onClick={handleSubmit}>{(isLogin)?"Login":"Signup"}</Button>

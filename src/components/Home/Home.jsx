@@ -7,7 +7,7 @@ const Home = () => {
     const user = useSelector(state => state.user);
     return (
         <>
-        {(user?.authData?.role==='Customer')?<CustomerHome />:<h1>Manager home</h1>}
+        {(user?.authData?.role==='customer')?<CustomerHome />:<h1>Manager home</h1>}
         </> 
         
      );
