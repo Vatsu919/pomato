@@ -4,9 +4,9 @@ const authReducer = (state = {authData: null,isLoggedIn: false},action) => {
     switch(action.type)
     {
         case AUTH:
-            localStorage.setItem('profile',JSON.stringify({...action?.data}));
+            localStorage.setItem('profile',JSON.stringify({...action.payload.result}));
             console.log(action);
-            return {...state, authData: action.payload.result,isLoggedIn: true};
+            return {...state, authData: action.payload,isLoggedIn: true};
         
         case SIGNUP:
             return state;

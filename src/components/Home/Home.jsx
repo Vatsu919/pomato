@@ -1,9 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import CustomerHome from './CustomerHome';
 
 
 const Home = () => {
-    return ( 
-        <h1>Homeeee</h1>
+    const user = useSelector(state => state.user);
+    return (
+        <>
+        {(user?.authData?.role==='Customer')?<CustomerHome />:<h1>Manager home</h1>}
+        </> 
+        
      );
 }
  
