@@ -12,6 +12,7 @@ import { Button } from 'react-bootstrap';
 import CustomerHome from './components/Home/CustomerHome';
 import RestaurantDetails from './components/Restaurant/RestaurantDetails';
 import Orders from './components/Orders/Orders';
+import Cart from './components/Cart/Cart';
 
 
 
@@ -45,6 +46,7 @@ function App() {
           <Route exact path='/restaurants' element={<CustomerHome />} />
           <Route exact path='/restaurant/:restaurantId/details' element={<RestaurantDetails />} />
           <Route exact path='/customer/orders' element={<Orders />} />
+          <Route exact path='/cart' element={<Cart />} />
         </Routes>
 
         {/* <Button onClick={handleClick}>logout</Button> */}
