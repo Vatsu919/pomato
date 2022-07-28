@@ -4,3 +4,6 @@ export const SIGNUP = 'SIGNUP';
 export const GET_ALL_RESTAURANTS = 'GET_ALL_RESTAURANTS';
 export const GET_ITEMS = 'GET_ITEMS';
 export const GET_CUSTOMER_ORDERS = 'GET_CUSTOMER_ORDERS';
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+export const ADJUST_QTY = 'ADJUST_QTY';
