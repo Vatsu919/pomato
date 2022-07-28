@@ -8,7 +8,7 @@ import { customerSignin, managerSignup } from '../../actions/authActions.js';
 import { createBrowserHistory } from 'history';
 import { Navigate } from 'react-router-dom';
 import App from '../../App.js';
-
+import "../styles.css"
 
 const ManagerAuthForm = () => {
     const [isLogin,setIsLogin] = useState(false);
@@ -109,9 +109,9 @@ const ManagerAuthForm = () => {
                 </Form.Group>
             }
             <div className='text-center'>
-                <Button variant="primary" className="mb-3" onClick={handleClick}>{(isLogin)?"Login":"Signup"}</Button>
+                <Button className="loginbutton mb-3" onClick={handleClick}>{(isLogin)?"Login":"Signup"}</Button>
             </div>
-            <div className="text-primary mb-2 float-end" style = {{cursor: "pointer"}} onClick={handleToggle}>{(isLogin)?"Create a new account?":"Already have an account?sign in"}</div>
+            <div className="text-primary mb-2 text-end" style = {{cursor: "pointer"}} onClick={handleToggle}>{(isLogin)?"Create a new account?":"Already have an account? Sign in"}</div>
         
         </Form>
         </div>

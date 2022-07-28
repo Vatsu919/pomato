@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { customerSignin, customerSignup } from '../actions/authActions.js';
 import { createBrowserHistory } from 'history';
 import App from '../App.js';
-
+import './styles.css';
 
 const CustomerAuthForm = () => {
 
@@ -45,7 +45,7 @@ const CustomerAuthForm = () => {
         setIsLogin(!isLogin);
     }
     return user.isLoggedIn ? (<App />) : ( 
-        <div className="container col-sm-6 col-md-4 border rounded-2 mt-5 bg-light"  >
+        <div className="container col-sm-6 col-md-4">
         <Form>
             <legend className='fs-1 fw-semibold m-2'>Customer {isLogin ? "Login":"Signup"}</legend>
 
@@ -68,9 +68,9 @@ const CustomerAuthForm = () => {
                 <Form.Control type="password" name="password" value={formData.password} placeholder="Enter Password"  onChange={(e) => setFormData({...formData,password:e.target.value})} required />
             </FloatingLabel>
             <div className='text-center'>
-                <Button variant="primary" className="mb-3" onClick={handleSubmit}>{(isLogin)?"Login":"Signup"}</Button>
+                <Button className="loginbutton mb-3" onClick={handleSubmit}>{(isLogin)?"Login":"Signup"}</Button>
             </div>
-            <div className="text-primary mb-2 float-end" style = {{cursor: "pointer"}} onClick={handleToggle}>{(isLogin)?"Create a new account?":"Already have an account?sign in"}</div>
+            <div className="text-primary text-end" style = {{cursor: "pointer"}} onClick={handleToggle}>{(isLogin)?"Create a new account?":"Already have an account?sign in"}</div>
         </Form>
         </div>
      );
