@@ -14,6 +14,7 @@ import RestaurantDetails from './components/Restaurant/RestaurantDetails';
 import Orders from './components/Orders/Orders';
 
 
+
 function App() {
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
@@ -36,7 +37,7 @@ function App() {
   return (
     <>
        
-        
+  
         <Routes>
           <Route exact path='/' element={(user.isLoggedIn)?<Home />:<CustomerAuthForm />} />
           <Route exact path='/customerAuth' element={<CustomerAuthForm />} />
