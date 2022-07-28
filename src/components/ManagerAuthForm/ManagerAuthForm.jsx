@@ -8,7 +8,8 @@ import { customerSignin, managerSignup } from '../../actions/authActions.js';
 import { createBrowserHistory } from 'history';
 import { Navigate } from 'react-router-dom';
 import App from '../../App.js';
-
+import "../styles.css"
+import logo from "../pomato.png"
 
 const ManagerAuthForm = () => {
     const [isLogin,setIsLogin] = useState(false);
@@ -69,7 +70,9 @@ const ManagerAuthForm = () => {
     }
     
     return user.isLoggedIn?(<App />):( 
-        <div className="container col-sm-6 col-lg-4 border rounded-2 mt-5 bg-light"  >
+        <div className='maincontainer'>
+            <img src={logo} className="logoimage"></img>            
+        <div className="container col-sm-6 col-lg-4 border rounded-2 bg-light manager-container"  >
         <Form>
             <legend className='fs-1 fw-semibold m-2'>Restaurant Manager {isLogin ? "Login":"Signup"}</legend>
 
@@ -109,11 +112,12 @@ const ManagerAuthForm = () => {
                 </Form.Group>
             }
             <div className='text-center'>
-                <Button variant="primary" className="mb-3" onClick={handleClick}>{(isLogin)?"Login":"Signup"}</Button>
+                <Button className="loginbutton mb-3" onClick={handleClick}>{(isLogin)?"Login":"Signup"}</Button>
             </div>
-            <div className="text-primary mb-2 float-end" style = {{cursor: "pointer"}} onClick={handleToggle}>{(isLogin)?"Create a new account?":"Already have an account?sign in"}</div>
+            <div className="text-primary mb-2 text-end" style = {{cursor: "pointer"}} onClick={handleToggle}>{(isLogin)?"Create a new account?":"Already have an account? Sign in"}</div>
         
         </Form>
+        </div>
         </div>
      );
 }

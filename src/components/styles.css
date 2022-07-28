@@ -1,0 +1,35 @@
+.customer-container{
+    background-color: rgba(255, 255, 255, 0.817);
+    border: 0.5px solid;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20vh;
+    margin-left: 5vh;
+    height: 60vh;
+}
+
+.manager-container{
+    /* background-color: rgba(255, 255, 255, 0.817); */
+    /* border: 0.5px solid; */
+    /* border-radius: 10px; */
+    /* padding: 20px; */
+    margin-top: 3vh;
+    margin-left: 3vh;
+}
+
+.loginbutton{
+    background-color: #a5c63f;
+    border-color: #a5c63f;
+    width: 12vh;
+}
+
+.maincontainer{
+    display: flex;
+}
+
+.logoimage{
+    width: 65vh;
+    height: 65vh;
+    margin-top: 12vh;
+    margin-left: 2vw;
+}
