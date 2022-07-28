@@ -9,6 +9,12 @@ const cartReducer = (state = [],action) => {
             console.log("state is:",state);
             console.log("in cart:",inCart);
             console.log("Item",action.payload.item);
+            
+            if(state.length>0 && action.payload.item.restaurantId!==state[0].restaurantId)
+            {
+                return [{...action.payload.item,qty:1}];
+            }
+
             return (inCart)?state.map(item => (item.itemId===action.payload.item.itemId)?{...item,qty:item.qty+1}:item):[...state,{...action.payload.item,qty:1}];
         
         case REMOVE_FROM_CART:
