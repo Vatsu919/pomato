@@ -16,6 +16,7 @@ const RestaurantDetails = () => {
     const [filter,setFilter] = useState("none");
     const newItems = filterItems(items,filter);
 
+
     console.log(items);
 
     useEffect(() => {

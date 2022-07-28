@@ -17,12 +17,12 @@ const Item = ({item}) => {
                 <h5 className="card-title">{item.name}</h5>
                 <p className="card-text mb-1">{item.description}</p>
                 <Badge bg={(item.cuisineType==='veg')?'success':'danger'}>{item.cuisineType}</Badge>
-                <p className="card-text"><small>Price: {item.price}</small></p>
-                {(item?.qty)?<p className="card-text"><small>Quantity: {item.qty}</small></p>:""}
+                <p className="card-text mb-0"><small>Price: {item.price}</small></p>
+               
             </div>
             
             {(!item?.qty)&&<Button className="float-end mb-2 me-2 btn-success" onClick={() => dispatch(addToCart(item))}>Add to Cart</Button>}
-            {(item?.qty)&&(<div className="float-end "><Button onClick={()=> item.qty===1 ? dispatch(removeFromCart(item)):dispatch(adjustQty(item,item.qty-1)) }>-</Button> <Button onClick = {() => dispatch(adjustQty(item,item.qty+1))}>+</Button></div>)}
+            {(item?.qty)&&(<div className="float-end m-2"><Button onClick={()=> item.qty===1 ? dispatch(removeFromCart(item)):dispatch(adjustQty(item,item.qty-1)) }>-</Button> {item.qty} <Button onClick = {() => dispatch(adjustQty(item,item.qty+1))}>+</Button></div>)}
             </div>
         </div>
         </div>
