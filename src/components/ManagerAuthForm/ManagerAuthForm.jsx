@@ -105,12 +105,7 @@ const ManagerAuthForm = () => {
                 <Form.Control as="textarea" name="restaurantaddress" value={formData.restaurantAddress} placeholder="Enter Restaurant Address" onChange={(e) => setFormData({...formData,restaurantAddress:e.target.value})} required />
                 </FloatingLabel>
             }
-            {!isLogin &&
-                <Form.Group className="mb-3" controlId="formBasicFile">
-                    <Form.Label>File</Form.Label>
-                    <Form.Control type="file" onChange={handleChange} />
-                </Form.Group>
-            }
+            
             <div className='text-center'>
                 <Button className="loginbutton mb-3" onClick={handleClick}>{(isLogin)?"Login":"Signup"}</Button>
             </div>
