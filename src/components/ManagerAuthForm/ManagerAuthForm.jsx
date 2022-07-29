@@ -8,7 +8,7 @@ import { customerSignin, managerSignup } from '../../actions/authActions.js';
 import { createBrowserHistory } from 'history';
 import { Navigate } from 'react-router-dom';
 import App from '../../App.js';
-
+import * as api from '../../api';
 
 const ManagerAuthForm = () => {
     const [isLogin,setIsLogin] = useState(false);
@@ -29,16 +29,12 @@ const ManagerAuthForm = () => {
 
     
 
-    const handleChange = (e) => {
-        console.log(e.target.files[0]);
-        var reader = new FileReader();
-        reader.readAsDataURL(e.target.files[0]);
-    
-        
-        reader.onload = () => {
-         // console.log(reader.result);
-          setFormData({...formData,restaurantImage: reader.result});
-        }
+    const handleChange = async (e) => {
+        var imageForm = new FormData();
+        imageForm.append("file",e.target.files[0]);
+        const {data} = await api.getImageUrl(imageForm);
+        console.log(data);
+        setFormData({...formData,restaurantImage: data.url});
     }
 
     const handleClick = (e) => {

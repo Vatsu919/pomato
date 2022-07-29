@@ -20,3 +20,4 @@ export const managerSignUp = (formData) => API.post('/managersignup',formData);
 export const getRestaurants = () => API.get('/restaurants');
 export const getItems = (restaurantId) => API.get(`/restaurants/getitems/${restaurantId}`);
 export const getOrders = (userId) => API.get(`/viewOrdersCustomer/${userId}`);
+export const getImageUrl = (formData) => API.post('/uploadimage',formData);

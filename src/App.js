@@ -49,7 +49,7 @@ function App() {
           <Route exact path='/cart' element={<Cart />} />
         </Routes>
 
-        {/* <Button onClick={handleClick}>logout</Button> */}
+        <Button onClick={handleClick}>logout</Button>
       
     </>
   );
