@@ -86,7 +86,7 @@ const RestaurantDetails = () => {
         <div className="col-6 mt-5">
             <div class="btn-group mb-2" role="group" aria-label="Basic example">
                 <button type="button" className="btn btn-success" onClick={() => setFilter("veg")} >Veg</button>
-                <button type="button" className="btn btn-danger" onClick={() => setFilter("Non-veg")} >Non Veg</button>
+                <button type="button" className="btn btn-danger" onClick={() => setFilter("nonveg")} >Non Veg</button>
                 <button type="button" className="btn btn-primary" onClick={() => setFilter("none")} >Both</button>
             </div>  
             {(newItems.length===0)?"Loading":newItems.map(item => <div><Item item={item} /></div> )}
