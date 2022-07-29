@@ -75,9 +75,12 @@ const CustomerAuthForm = () => {
                     <Button className="loginbutton mb-3" onClick={handleSubmit}>{(isLogin)?"Login":"Signup"}</Button>
                 </div>
                 <div className="text-primary text-end" style = {{cursor: "pointer"}} onClick={handleToggle}>{(isLogin)?"Create a new account?":"Already have an account? Sign in"}</div>
+                <p></p>
+                <div className="redirect-link">
+                    <Link to="/managerAuth" className='text-decoration-none'>Signup as Restaurant Manager</Link>
+                </div>
             </Form>
             </div>
-            <Link to="/managerAuth" className="text-decoration-none">Are you a Restaurant manager?CLick Here to signup</Link>
         </div>
      );
 }

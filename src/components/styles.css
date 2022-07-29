@@ -5,7 +5,7 @@
     padding: 20px;
     margin-top: 20vh;
     margin-left: 5vh;
-    height: 60vh;
+    height: 65vh;
 }
 
 .manager-container{
@@ -20,7 +20,7 @@
 .loginbutton{
     background-color: #a5c63f;
     border-color: #a5c63f;
-    width: 12vh;
+    width: 12vw;
 }
 
 .maincontainer{
@@ -32,4 +32,11 @@
     height: 65vh;
     margin-top: 18vh;
     margin-left: 2vw;
+}
+
+.redirect-link{
+    text-align: right;
+    text-decoration: none;
+    color: rgba(13, 110, 253, 1);
+    cursor: pointer;
 }
