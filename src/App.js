@@ -63,7 +63,7 @@ function App() {
           <Route exact path='admin/restaurants' element = {<AdminRestaurantList />} />
         </Routes>
 
-        <Button onClick={handleClick}>logout</Button>
+        {/* <Button onClick={handleClick}>logout</Button> */}
       
     </>
   );

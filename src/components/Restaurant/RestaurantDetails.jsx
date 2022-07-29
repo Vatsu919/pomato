@@ -93,7 +93,7 @@ const RestaurantDetails = () => {
         </div>
         {(user?.authData?.role==="manager") && 
             <div className="col-3 mt-5">
-                <h1>Add item</h1>
+                <h1>{(selectedItem)?"Update item":"Add item" }</h1>
                 <Form>
                     <FloatingLabel controlId="floatingInput" label="Name" className="mb-3">
                         <Form.Control type="text" name="name" value={formData.name} placeholder="Enter Item Name"  onChange={(e) => setFormData({...formData,name:e.target.value})} required />
@@ -107,7 +107,7 @@ const RestaurantDetails = () => {
                     <FloatingLabel controlId="floatingInput" label="Price" className="mb-3">
                     <Form.Control type="number" name="price" value={formData.price} placeholder="Enter Price"  onChange={(e) => setFormData({...formData,price:e.target.value})} required />
                     </FloatingLabel>
-                    <button className='btn btn-success' onClick={handleSubmit}>Add item</button>
+                    <button className='btn btn-success' onClick={handleSubmit}>{(selectedItem)?"Update item":"Add item"}</button>
                 </Form>
             </div>}
         </div>
