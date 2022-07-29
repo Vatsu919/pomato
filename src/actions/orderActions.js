@@ -1,5 +1,5 @@
 import * as api from '../api/index.js';
-import { CLEAR_CART, FLASH_MESSAGE, GET_CUSTOMER_ORDERS, GET_MANAGER_ORDERS, PLACE_ORDER } from '../constants';
+import { CLEAR_CART, FLASH_MESSAGE, GET_ALL_ORDERS, GET_CUSTOMER_ORDERS, GET_MANAGER_ORDERS, PLACE_ORDER } from '../constants';
 
 
 export const getOrders = (userId) => async (dispatch) => {
@@ -33,5 +33,14 @@ export const getManagerOrders = (restaurantId,userId) => async (dispatch) => {
         dispatch({type:GET_MANAGER_ORDERS,payload:data.list});
     } catch (error) {
         console.log(error);
+    }
+}
+
+export const  viewAllOrders = () => async (dispatch) => {
+    try {
+        const {data} = await api.viewAllOrders();
+        dispatch({type:GET_ALL_ORDERS,payload:data.list});
+    } catch (error) {
+        console.log(error)
     }
 }

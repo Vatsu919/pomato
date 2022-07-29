@@ -15,6 +15,7 @@ import Orders from './components/Orders/Orders';
 import Cart from './components/Cart/Cart';
 import ActionAlert from './components/ActionAlert/ActionAlert';
 import {useNavigate} from 'react-router-dom';
+import AdminRestaurantList from './components/AdminRestaurantList/AdminRestaurantList';
 
 
 
@@ -59,6 +60,7 @@ function App() {
           <Route exact path='/restaurant/:restaurantId/details' element={<RestaurantDetails />} />
           <Route exact path='/orders' element={<Orders />} />
           <Route exact path='/cart' element={<Cart />} />
+          <Route exact path='admin/restaurants' element = {<AdminRestaurantList />} />
         </Routes>
 
         <Button onClick={handleClick}>logout</Button>
