@@ -2,6 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card'
 
 const AdminRestaurant = ({robj}) => {
+    console.log("Robg",robj);
     return ( 
         <>
         
@@ -11,8 +12,9 @@ const AdminRestaurant = ({robj}) => {
         <Card.Body>
             <Card.Title>Restaurant number {robj.restaurantId}</Card.Title>
             <Card.Text>
-                {robj.restaurantAddress}
+                Address: {robj.restaurantAddress}
             </Card.Text>
+            
            
         </Card.Body>
         </Card>
