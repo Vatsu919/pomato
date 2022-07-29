@@ -24,7 +24,7 @@ export const adjustQty = (item,value) => {
         type: ADJUST_QTY,
         payload: {
             item: item,
-            qty: value
+            quantity: value
         }
     }
 }

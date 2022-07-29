@@ -5,6 +5,7 @@ import MyNavbar from '../Navbar/MyNavbar.jsx';
 import Restaurant from '../Restaurant/Resturant.jsx';
 
 
+
 const CustomerHome = () => {
     const restaurants = useSelector(state => state.restaurants);
     console.log(restaurants);

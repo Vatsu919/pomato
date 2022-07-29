@@ -1,14 +1,16 @@
 .App {
 
   text-align: center; 
-
+  width: 100vw;
+  height: 100vh;
 } 
 
   
 
 body{
+  margin:0;
   background-color: blue;
 
-background-size: cover;
+  /* background-size: cover; */
 }
 

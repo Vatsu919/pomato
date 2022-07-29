@@ -4,19 +4,19 @@ import { LOGOUT } from '../../constants';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import {createBrowserHistory} from 'history';
+import {useNavigate} from 'react-router-dom';
 import {Link } from 'react-router-dom';
 
 const MyNavbar = () => {
     const dispatch = useDispatch();
-    const history = createBrowserHistory();
+    const history = useNavigate();
     const cart = useSelector(state=>state.cart);
     const [cartCounter,setCartCounter] = useState(0);
 
     useEffect(() => {
         let count=0;
         cart.forEach(item => {
-            count += item.qty;
+            count += item.quantity;
         })
         setCartCounter(count);
     }, [cart]);
@@ -27,8 +27,8 @@ const MyNavbar = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
-                    <Nav.Link href="#features">Previous Orders</Nav.Link>
-                    <Nav.Link onClick={() => {dispatch({type:LOGOUT});history.push('/') }} href="">Logout</Nav.Link>
+                    <Nav.Link><Link to="/orders" className='text-decoration-none'>All Orders</Link></Nav.Link>
+                    <Nav.Link onClick={() => {dispatch({type:LOGOUT});history('/') }} href="">Logout</Nav.Link>
                     
                 </Nav>
                 <Nav>
