@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Item from '../Item/Item';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button'
+import { placeOrder } from '../../actions/orderActions.js';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
     const cart = useSelector(state=>state.cart);
     const user = useSelector(state=>state.user);
     const [totalAmount,setTotalAmount] = useState(0);
+    const dispatch = useDispatch();
+    const history = useNavigate();
     const [formData,setFormData] = useState({
         address: '',
         amount: 0,
@@ -17,23 +21,31 @@ const Cart = () => {
         restaurantId: 0,
         userId: 0
     });
-    console.log(totalAmount);
+    // console.log(totalAmount);
 
-    console.log("User: ",user);
+   // console.log("User: ",user);
     useEffect(() => {
         let amt=0;
         cart.forEach(item => {
-            amt += item.price*item.qty;
+            amt += item.price*item.quantity;
         })
         setTotalAmount(amt);
-    },[cart,totalAmount])
+        if(cart.length>0)
+        {
+            setFormData({...formData,amount:totalAmount,restaurantId:cart[0].restaurantId,userId:user.authData.userId,listOfItems: cart});
+        }
+    },[cart,user])
 
 
-    console.log(cart);
+   // console.log(cart);
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("Submitting");
         setFormData({...formData,amount:totalAmount,restaurantId:cart[0].restaurantId,userId:user.authData.userId,listOfItems: cart});
         console.log(formData);
+        dispatch(placeOrder(formData,history));
+        
     }
     return ( 
         <div className='container w-50'>
@@ -52,7 +64,7 @@ const Cart = () => {
                         <option value="card">Credit/Debit card</option>
                         <option value="upi">UPI</option>
                     </Form.Select>
-                    <Button onClick={handleSubmit}>Place order</Button>
+                    <button className='btn btn-primary m-2' onClick={handleSubmit}>Place order</button>
                 </Form>
             </>)}
         </div>

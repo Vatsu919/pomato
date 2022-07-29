@@ -1,4 +1,4 @@
-import { GET_ITEMS } from "../constants";
+import { ADD_ITEM, DELETE_ITEM, GET_ITEMS, UPDATE_ITEM } from "../constants";
 
 const itemReducer = (state=[],action) => {
     switch(action.type)
@@ -7,6 +7,14 @@ const itemReducer = (state=[],action) => {
             console.log(action.payload);
             return action.payload;
         
+        case ADD_ITEM:
+            console.log(action.payload);
+            return [...state,action.payload];
+
+        case UPDATE_ITEM:
+            return state.map(item => (item.itemId===action.payload.itemId)?action.payload:item);
+        case DELETE_ITEM:
+            return state.filter(item => item.itemId!==action.payload);
         default:
             return state;
     }

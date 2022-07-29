@@ -8,6 +8,7 @@ import { createBrowserHistory } from 'history';
 import App from '../App.js';
 import './styles.css';
 import logo from "./pomato.png";
+import {Link} from 'react-router-dom';
 
 const CustomerAuthForm = () => {
 
@@ -76,7 +77,7 @@ const CustomerAuthForm = () => {
                 <div className="text-primary text-end" style = {{cursor: "pointer"}} onClick={handleToggle}>{(isLogin)?"Create a new account?":"Already have an account? Sign in"}</div>
             </Form>
             </div>
-
+            <Link to="/managerAuth" className="text-decoration-none">Are you a Restaurant manager?CLick Here to signup</Link>
         </div>
      );
 }

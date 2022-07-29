@@ -1,4 +1,4 @@
-import { ADD_TO_CART, ADJUST_QTY, REMOVE_FROM_CART } from "../constants";
+import { ADD_TO_CART, ADJUST_QTY, CLEAR_CART, REMOVE_FROM_CART } from "../constants";
 
 const cartReducer = (state = [],action) => {
     
@@ -12,16 +12,19 @@ const cartReducer = (state = [],action) => {
             
             if(state.length>0 && action.payload.item.restaurantId!==state[0].restaurantId)
             {
-                return [{...action.payload.item,qty:1}];
+                return [{...action.payload.item,quantity:1}];
             }
 
-            return (inCart)?state.map(item => (item.itemId===action.payload.item.itemId)?{...item,qty:item.qty+1}:item):[...state,{...action.payload.item,qty:1}];
+            return (inCart)?state.map(item => (item.itemId===action.payload.item.itemId)?{...item,quantity:item.quantity+1}:item):[...state,{...action.payload.item,quantity:1}];
         
         case REMOVE_FROM_CART:
             return state.filter(item => item.itemId !== action.payload.item.itemId);
 
         case ADJUST_QTY:
-            return state.map(item => (item.itemId===action.payload.item.itemId)?{...item,qty:action.payload.qty}:item);
+            return state.map(item => (item.itemId===action.payload.item.itemId)?{...item,quantity:action.payload.quantity}:item);
+
+        case CLEAR_CART:
+            return [];
 
         default:
             console.log(state);
