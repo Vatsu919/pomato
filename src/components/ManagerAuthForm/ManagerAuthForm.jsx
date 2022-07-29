@@ -109,7 +109,7 @@ const ManagerAuthForm = () => {
                 </Form.Group>
             }
             <div className='text-center'>
-                <Button className="loginbutton mb-3" onClick={handleClick} disabled={!formData.restaurantImage.length}>{(isLogin)?"Login":"Signup"}</Button>
+                <Button className="loginbutton mb-3" onClick={handleClick} disabled={!formData.restaurantImage.length && !isLogin}>{(isLogin)?"Login":"Signup"}</Button>
             </div>
             <div className="text-primary mb-2 text-end" style = {{cursor: "pointer"}} onClick={handleToggle}>{(isLogin)?"Create a new account?":"Already have an account? Sign in"}</div>
         
