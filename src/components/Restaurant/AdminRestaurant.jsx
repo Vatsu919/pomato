@@ -14,9 +14,7 @@ const AdminRestaurant = ({robj}) => {
             <Card.Text>
                 Address: {robj.restaurantAddress}
             </Card.Text>
-            <Card.Text>
-                Contact Number: {robj.contactNumber}
-            </Card.Text>
+            
            
         </Card.Body>
         </Card>
