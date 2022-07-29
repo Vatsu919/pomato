@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import {useNavigate} from 'react-router-dom';
 import {Link } from 'react-router-dom';
+import Plogo from './pomatologo.png';
 
 const MyNavbar = () => {
     const dispatch = useDispatch();
@@ -21,9 +22,9 @@ const MyNavbar = () => {
         setCartCounter(count);
     }, [cart]);
     return ( 
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" variant="dark" bg="dark">
             <Container>
-                <Navbar.Brand><Link to="/" className='text-decoration-none text-light'>Pomato</Link></Navbar.Brand>
+                <Navbar.Brand><img src={Plogo} className="mx-2" style={{height:'50px',width:'50px'}} /><Link to="/" className='text-decoration-none text-light'>Pomato</Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">

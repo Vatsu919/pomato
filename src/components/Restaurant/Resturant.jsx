@@ -7,7 +7,7 @@ const Restaurant = ({robj}) => {
     return ( 
         <Link className="text-decoration-none" to={"/restaurant/"+robj.restaurantId+"/details"}>
         <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={robj.restaurantImage} />
+            <Card.Img variant="top" className="" style={{height:'250px',width:'285px'}} src={robj.restaurantImage} />
             <Card.Body>
                 <Card.Title>{robj.restaurantName}</Card.Title>
                 <Card.Text>
