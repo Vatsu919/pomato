@@ -6,6 +6,7 @@ import orders from './ordersReducer.js';
 import cart from './cartReducer.js';
 import flash from './flashMessageReducer.js';
 import selectedItem from './selectedItemReducer.js';
+import payments from './paymentReducer.js';
 
 export default combineReducers({
     user,
@@ -14,5 +15,6 @@ export default combineReducers({
     orders,
     cart,
     flash,
-    selectedItem
+    selectedItem,
+    payments
 });

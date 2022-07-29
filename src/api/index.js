@@ -27,3 +27,4 @@ export const deleteItem = (restaurantId,itemId,formData) => API.delete(`/deletei
 export const updateItem = (restaurantId,itemId,formData) => API.put(`/updateitem/${restaurantId}/${itemId}`,formData);
 export const getManagerOrders = (restaurantId,userId) => API.get(`/viewordersmanager/${userId}/${restaurantId}`);
 export const viewAllOrders = () => API.get('/viewallorders');
+export const getPayments = () => API.get('/viewallpayments');

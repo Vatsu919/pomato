@@ -19,7 +19,7 @@ const AdminNavbar = () => {
                 <Nav className="me-auto">
                     <Nav.Link><Link to="/orders" className='text-decoration-none'>All Orders</Link></Nav.Link>
                     <Nav.Link><Link to="/admin/restaurants" className='text-decoration-none'>All Restaurants</Link></Nav.Link>
-                    <Nav.Link><Link to="/orders" className='text-decoration-none'>All Payments</Link></Nav.Link>
+                    <Nav.Link><Link to="/admin/payments" className='text-decoration-none'>All Payments</Link></Nav.Link>
                     <Nav.Link onClick={() => {dispatch({type:LOGOUT});history('/') }} href="">Logout</Nav.Link>
                     
                 </Nav>

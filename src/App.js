@@ -16,6 +16,7 @@ import Cart from './components/Cart/Cart';
 import ActionAlert from './components/ActionAlert/ActionAlert';
 import {useNavigate} from 'react-router-dom';
 import AdminRestaurantList from './components/AdminRestaurantList/AdminRestaurantList';
+import PaymentList from './components/PaymentCard/PaymentList';
 
 
 
@@ -61,6 +62,7 @@ function App() {
           <Route exact path='/orders' element={<Orders />} />
           <Route exact path='/cart' element={<Cart />} />
           <Route exact path='admin/restaurants' element = {<AdminRestaurantList />} />
+          <Route exact path='admin/payments' element = {<PaymentList />} />
         </Routes>
 
         {/* <Button onClick={handleClick}>logout</Button> */}
