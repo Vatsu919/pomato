@@ -1,8 +1,12 @@
 import React,{useEffect} from 'react';
 import { useSelector,useDispatch } from 'react-redux';
-import { getManagerOrders, getOrders } from '../../actions/orderActions.js';
+import { getManagerOrders, getOrders, viewAllOrders } from '../../actions/orderActions.js';
 
 import Order from './Order.jsx';
+import Pomato from '../pomato.png';
+import Image from 'react-bootstrap/Image'
+import AdminNavbar from '../Navbar/AdminNavbar.jsx';
+import MyNavbar from '../Navbar/MyNavbar.jsx';
 
 const Orders = () => {
     
@@ -20,19 +24,27 @@ const Orders = () => {
             {
                 dispatch(getOrders(user?.authData?.userId));
             }
-            else
+            else if(user?.authData?.role==="manager")
             {
                 console.log(user?.authData?.restaurantId);
                 dispatch(getManagerOrders(user?.authData?.restaurantId,user?.authData?.userId));
             }
+            else
+            {
+                console.log("hereeeee")
+                dispatch(viewAllOrders());
+            }
         }
     }, [user]);
     return ( 
+        <>
+        {(user?.authData?.role==='admin')?<AdminNavbar /> : <MyNavbar />}
         <div className='container w-50'>
             <h1>Orders</h1>
-            {(orders.length>0)?orders.map(order => {return <Order order = {order} />}):"Loading"}
+            {(orders.length>0)?orders.map(order => {return <Order order = {order} />}):(<Image rounded className="h-50 w-50 mx-auto" src={Pomato} />)}
             
         </div>
+        </>
      );
 }
  

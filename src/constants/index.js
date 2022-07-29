@@ -17,3 +17,4 @@ export const UPDATE_ITEM = 'UPDATE_ITEM';
 export const SELECT_ITEM = 'SELECT_ITEM';
 export const DESELECT_ITEM = 'DESELECT_ITEM';
 export const GET_MANAGER_ORDERS = 'GET_MANAGER_ORDERS';
+export const GET_ALL_ORDERS = 'GET_ALL_ORDERS';
