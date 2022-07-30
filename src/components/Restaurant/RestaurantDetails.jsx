@@ -7,20 +7,20 @@ import MyNavbar from '../Navbar/MyNavbar.jsx';
 import filterItems from '../../helper/index.js';
 import { Form } from 'react-bootstrap';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Loading from '../Loading/Loading.jsx';
 
 
 
 const RestaurantDetails = () => {
     const {restaurantId} = useParams();
     const dispatch = useDispatch();
-    const items = useSelector(state => state.items);
+    let items = useSelector(state => state.items);
     const user = useSelector(state => state.user);
     const userId = user?.authData?.userId;
     const [filter,setFilter] = useState("none");
     let newItems = filterItems(items,filter);
     const selectedItem = useSelector(state => state.selectedItem);
     
-
     const [formData,setFormData] = useState({
         name: '',
         price: 0,
@@ -47,6 +47,7 @@ const RestaurantDetails = () => {
         console.log(formData);
         if(selectedItem)
         {
+            setFilter("none");
             dispatch(updateItem(restaurantId,selectedItem.itemId,formData));
         }
         else
@@ -89,7 +90,7 @@ const RestaurantDetails = () => {
                 <button type="button" className="btn btn-danger" onClick={() => setFilter("nonveg")} >Non Veg</button>
                 <button type="button" className="btn btn-primary" onClick={() => setFilter("none")} >Both</button>
             </div>  
-            {(newItems.length===0)?"Loading":newItems.map(item => <div><Item item={item} /></div> )}
+            {(newItems.length===0)?<Loading />:newItems.map(item => <div><Item item={item} /></div> )}
         </div>
         {(user?.authData?.role==="manager") && 
             <div className="col-3 mt-5">

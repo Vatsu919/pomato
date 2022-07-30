@@ -7,6 +7,7 @@ import Pomato from '../pomato.png';
 import Image from 'react-bootstrap/Image'
 import AdminNavbar from '../Navbar/AdminNavbar.jsx';
 import MyNavbar from '../Navbar/MyNavbar.jsx';
+import Loading from '../Loading/Loading.jsx';
 
 const Orders = () => {
     
@@ -41,7 +42,7 @@ const Orders = () => {
         {(user?.authData?.role==='admin')?<AdminNavbar /> : <MyNavbar />}
         <div className='container w-50'>
             <h1>Orders</h1>
-            {(orders.length>0)?orders.map(order => {return <Order order = {order} />}):(<Image rounded className="h-50 w-50 mx-auto" src={Pomato} />)}
+            {(orders.length>0)?orders.map(order => {return <Order order = {order} />}):(<Loading />)}
             
         </div>
         </>

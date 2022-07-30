@@ -1,14 +1,13 @@
 import { FLASH_MESSAGE, REMOVE_FLASH_MESSAGE } from "../constants";
 
-const flashMessageReducer = (state={display:false},action) => {
+const flashMessageReducer = (state={display:false,message: null,type:null},action) => {
     switch(action.type)
     {
         case FLASH_MESSAGE:
-            console.log("called");
-            return {display:true};
+            return action.payload;
 
         case REMOVE_FLASH_MESSAGE:
-            return {display:false};
+            return {display:false,message:null,type:null};
         
         default:
             return state;

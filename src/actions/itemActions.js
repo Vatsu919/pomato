@@ -1,5 +1,5 @@
 import * as api from '../api/index.js';
-import { ADD_ITEM, DELETE_ITEM, GET_ITEMS, UPDATE_ITEM } from '../constants';
+import { ADD_ITEM, DELETE_ITEM, DESELECT_ITEM, GET_ITEMS, UPDATE_ITEM } from '../constants';
 
 export const getItems = (restaurantId) => async (dispatch) => {
     try {
@@ -34,8 +34,10 @@ export const deleteItem = (restaurantId,itemId,formData) => async (dispatch) => 
 export const updateItem = (restaurantId,itemId,formData) => async (dispatch) => {
     try {
         const {data} = await api.updateItem(restaurantId,itemId,formData);
-        console.log(data);
-        dispatch({type:UPDATE_ITEM,payload:data});
+        console.log("updated data",data);
+
+        dispatch({type:UPDATE_ITEM,payload:data.menu});
+        dispatch({type:DESELECT_ITEM});
     } catch (error) {
         
     }
