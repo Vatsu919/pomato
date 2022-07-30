@@ -30,19 +30,19 @@ const Cart = () => {
             amt += item.price*item.quantity;
         })
         setTotalAmount(amt);
-        if(cart.length>0)
-        {
-            setFormData({...formData,amount:totalAmount,restaurantId:cart[0].restaurantId,userId:user.authData.userId,listOfItems: cart});
-        }
+        // console.log(totalAmount);
     },[cart,user])
 
-
    // console.log(cart);
+    useEffect(()=>{
+        if(cart.length) setFormData({...formData,amount:totalAmount,restaurantId:cart[0].restaurantId,userId:user.authData.userId,listOfItems: cart});
+    },[cart,totalAmount]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Submitting");
-        setFormData({...formData,amount:totalAmount,restaurantId:cart[0].restaurantId,userId:user.authData.userId,listOfItems: cart});
+        // setFormData({...formData,amount:totalAmount,restaurantId:cart[0].restaurantId,userId:user.authData.userId,listOfItems: cart});
+        // console.log(totalAmount);
         console.log(formData);
         dispatch(placeOrder(formData,history));
         
