@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import Loading from '../Loading/Loading';
 import MyNavbar from '../Navbar/MyNavbar';
 import Restaurant from '../Restaurant/Resturant';
 
@@ -11,7 +12,7 @@ const ManagerHome = () => {
         <>
         <MyNavbar />
         <div className="container w-50 m-2">
-        {restaurant?<Restaurant robj={restaurant} />:"Loading"}
+        {restaurant?<Restaurant robj={restaurant} />:<Loading />}
         </div>
         </>
      );

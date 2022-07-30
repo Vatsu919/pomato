@@ -50,8 +50,8 @@ const Cart = () => {
     return ( 
         <div className='container w-50'>
             <span className='fs-1 mb-2'>Cart</span>
-            {(cart.length===0)?"Empty": cart.map(item => <div><Item item={item} /> </div>)}
-            <span className="fs-3 m-2">Total Amount: {totalAmount}</span> 
+            {(cart.length===0)?<span className="fs-3 d-block mt-4">Cart is empty</span>: cart.map(item => <div><Item item={item} /> </div>)}
+            {cart.length>0 && <span className="fs-3 m-2">Total Amount: {totalAmount}</span> }
             {(cart.length>0) && (
             <>
                 <Form className="mb-5">

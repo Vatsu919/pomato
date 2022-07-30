@@ -19,7 +19,7 @@ export const placeOrder = (formData,history) => async (dispatch) => {
         console.log(data);
         dispatch({type:PLACE_ORDER,payload:data});
         dispatch({type:CLEAR_CART});
-        dispatch({type:FLASH_MESSAGE});
+        dispatch({type:FLASH_MESSAGE,payload:{display:true,message:"Order placed successfully",type:"success"}});
         history('/');
     } catch (error) {
         console.log(error);

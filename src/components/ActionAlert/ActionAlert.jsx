@@ -6,8 +6,14 @@ const ActionAlert = () => {
     const flash = useSelector(state=>state.flash);
     return ( 
         <>
-            {flash.display?<Alert key='success' variant='success'>
-            Order successfully placed!!!
+            {flash.display?<Alert style={{
+                position:'absolute',
+                top:'0px',
+                left:'0px',
+                width:'100%',
+                zIndex:100
+}} key={flash.type} variant={flash.type}>
+            {flash.message}
         </Alert>:null}
       </>
      );

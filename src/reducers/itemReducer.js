@@ -9,9 +9,10 @@ const itemReducer = (state=[],action) => {
         
         case ADD_ITEM:
             console.log(action.payload);
-            return [...state,action.payload];
+            return [action.payload,...state];
 
         case UPDATE_ITEM:
+            console.log(action.payload)
             return state.map(item => (item.itemId===action.payload.itemId)?action.payload:item);
         case DELETE_ITEM:
             return state.filter(item => item.itemId!==action.payload);
